@@ -1,6 +1,6 @@
 How it Works?
 
-First you can register by entering mobile number and password.Then you can login by entering correct mobile number and password.You can Add story by choosing an image and clicking the add button.You will see all images uploaded in your home page . I have used Mariadb for mysql database and Minio for object database where I stored my pictures.
+First you can register by entering mobile number and password.Then you can login by entering correct mobile number and password.You can Add story by choosing an image and clicking the add button.You will see all images uploaded in your home page . I have used mysql database and Minio for object database where I stored my pictures.
 
 # Getting Started with Create React App
 
