@@ -1,6 +1,15 @@
 .storyReel{
     display: flex;
-    margin-top: 20px;
-    margin-bottom: 20px;
-   
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    margin-bottom: 40px;
+}
+
+.wrapped{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    margin-bottom: 40px;  
 }

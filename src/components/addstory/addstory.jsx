@@ -1,42 +1,29 @@
-import './AddStory.css';
-
+import './addstory.css';
+import AddCircleIcon from '@material-ui/icons/AddCircle';
 import { useState } from 'react';
 
-function AddStory({ profileSrc, fullName, setRenderReel }) {
-  const [file, setFile] = useState();
+function AddStory({ profileSrc, setRenderReel }) {
+  const [file, setFile] = useState(null);
 
   const onSubmit = () => {
     const data = new FormData();
     data.append('image', file);
-
+    data.append('number',localStorage.getItem('number'));
+    if(file==null)
+      return;
+    
     fetch("http://localhost:5000/api/v1/employee/story", {
+      
       method: "POST",
       body: data,
     }).then(response => response.json()).then(
       obj => {
-        postImageID(obj.fileId);
+        // postImageID(obj.fileId);
+        console.log(obj);
       });
   }
 
-  const postImageID = (storyId) => {
-    fetch("http://localhost:5000/api/v1/employee/story", {
-      method: "POST",
-      
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        fullName: fullName,
-        id: storyId,
-        date: new Date().toDateString()
-      }),
-    }).then(response => response.json()).then(
-      obj =>{
-      console.log(obj);
-      setRenderReel(prev => !prev);
-    });
-  }
-
+  
   return (
     <div className="addStoryWrapper">
       <div className='addstory' style={{backgroundImage:`url(${profileSrc})`}}>
@@ -53,7 +40,8 @@ function AddStory({ profileSrc, fullName, setRenderReel }) {
         name="avatar" 
         onChange={ event => {
           const file = event.target.files[0];
-          setFile(file)
+          if(file!=null){
+          setFile(file)}
         }}
       />
     </div>
