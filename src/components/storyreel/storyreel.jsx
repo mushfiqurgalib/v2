@@ -29,13 +29,12 @@ function StoryReel({ fullName }) {
   return (
     <div className='storyReel'>
       <AddStory
-       // fullName={ fullName }
-        // profileSrc={ defaultAddImg }
+       
         setRenderReel= { setRenderReel }
         renderReel={ renderReel }
       />
-      {/* <button onClick={imageshower}>CLick me</button> */}
-      <div className='wrapped'>
+     
+    <div className='wrapped'>
       { 
         storyIds.map((s) => {
           return  <Story
